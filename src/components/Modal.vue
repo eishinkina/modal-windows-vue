@@ -4,7 +4,7 @@
       <!-- header  -->
       <div class="modal-header">
         <span class="modal-title"> {{ title }} </span>
-        <span class="button-close">×</span>
+        <span class="button-close" @click="$emit('close')">×</span>
       </div>
       <!-- body -->
       <div class="modal-body"></div>
