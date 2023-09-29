@@ -4,9 +4,14 @@
     <div class="wrapper-content">
       <section>
         <div class="container">
-          <button class="btn btnPrimary" @click="modalFirst = !modalFirst ">Show first modal</button>
+          <button class="btn btnPrimary" @click="modalFirst = !modalFirst">Show first modal</button>
           <!-- first modal  -->
-          <Modal title="first modal" v-if="modalFirst" @close="modalFirst = !modalFirst"></Modal>
+          <Modal title="first modal" v-if="modalFirst" @close="modalFirst = !modalFirst">
+            <div slot="body">
+              <p>text text text text</p>
+              <button class="btn btnPrimary" @click="modalFirst = !modalFirst">Well done!</button>
+            </div>
+          </Modal>
         </div>
       </section>
     </div>
@@ -27,5 +32,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

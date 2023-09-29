@@ -7,7 +7,9 @@
         <span class="button-close" @click="$emit('close')">×</span>
       </div>
       <!-- body -->
-      <div class="modal-body"></div>
+      <div class="modal-body">
+        <slot name="body">default body </slot>
+      </div>
     </div>
   </div>
 </template>
