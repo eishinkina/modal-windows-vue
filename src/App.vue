@@ -6,7 +6,7 @@
         <div class="container">
           <button class="btn btnPrimary" @click="modalFirst = !modalFirst">Show first modal</button>
           <!-- first modal  -->
-          <Modal title="first modal" v-if="modalFirst" @close="modalFirst = !modalFirst">
+          <Modal title="first modal" v-show="modalFirst" @close="modalFirst = !modalFirst">
             <div slot="body">
               <p>text text text text</p>
               <button class="btn btnPrimary" @click="modalFirst = !modalFirst">Well done!</button>
