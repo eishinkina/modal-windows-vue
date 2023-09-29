@@ -5,31 +5,54 @@
       <section>
         <div class="container">
           <!-- first modal  -->
-          <button class="btn btnPrimary" @click="modalFirst = !modalFirst">Show first modal</button>
-          <Modal title="first modal" v-show="modalFirst" @close="modalFirst = false">
+          <button class="btn btnPrimary" @click="modalFirst = !modalFirst">
+            Show first modal
+          </button>
+          <Modal
+            title="first modal"
+            v-show="modalFirst"
+            @close="modalFirst = false"
+          >
             <div slot="body">
               <p>text text text text</p>
-              <button class="btn btnPrimary" @click="modalFirst = !modalFirst">Well done!</button>
+              <button class="btn btnPrimary" @click="modalFirst = !modalFirst">
+                Well done!
+              </button>
             </div>
           </Modal>
           <!-- second modal  -->
-          <button class="btn btnPrimary" @click="modalSecond.show = !modalSecond.show">Show modal with form</button>
-          <Modal title="modal with show" v-show="modalSecond.show" @close="modalSecond.show = false">
+          <button
+            class="btn btnPrimary"
+            @click="modalSecond.show = !modalSecond.show"
+          >
+            Show modal with form
+          </button>
+          <Modal
+            title="modal with show"
+            v-show="modalSecond.show"
+            @close="modalSecond.show = false"
+          >
             <div slot="body">
               <form @submit.prevent="submitSecondForm">
                 <label>Name:</label>
-                <input type="text" required v-model="modalSecond.name">
+                <input type="text" required v-model="modalSecond.name" />
                 <label>email</label>
-                <input type="email" required v-model="modalSecond.email">
+                <input type="email" required v-model="modalSecond.email" />
                 <button class="btn btnPrimary">submit</button>
               </form>
             </div>
           </Modal>
           <!-- modal with validate  -->
-          <button class="btn btnPrimary" @click="modalValidate.show = !modalValidate.show">Show modal with
-            validate</button>
-          <ModalValidate v-if="modalValidate.show" @close="modalValidate.show = false" />
-
+          <button
+            class="btn btnPrimary"
+            @click="modalValidate.show = !modalValidate.show"
+          >
+            Show modal with validate
+          </button>
+          <ModalValidate
+            v-if="modalValidate.show"
+            @close="modalValidate.show = false"
+          />
         </div>
       </section>
     </div>
@@ -37,38 +60,38 @@
 </template>
 
 <script>
-import Modal from './components/Modal.vue';
-import ModalValidate from './components/ModalValidate.vue';
+import Modal from "./components/Modal.vue";
+import ModalValidate from "./components/ModalValidate.vue";
 export default {
   components: {
     Modal,
-    ModalValidate
+    ModalValidate,
   },
   data() {
     return {
       modalFirst: false,
       modalSecond: {
         show: false,
-        name: '',
-        email: '',
+        name: "",
+        email: "",
       },
       modalValidate: {
-        show: false
-      }
-    }
+        show: false,
+      },
+    };
   },
   methods: {
     submitSecondForm() {
       console.log({
         name: this.modalSecond.name,
-        email: this.modalSecond.email
-      })
-      this.modalSecond.name = ''
-      this.modalSecond.email = ''
-      this.modalSecond.show = false
-    }
-  }
-}
+        email: this.modalSecond.email,
+      });
+      this.modalSecond.name = "";
+      this.modalSecond.email = "";
+      this.modalSecond.show = false;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

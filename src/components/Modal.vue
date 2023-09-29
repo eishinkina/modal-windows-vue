@@ -21,17 +21,17 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   mounted() {
-    document.body.addEventListener('keydown', e => {
-      if (e.keyCode === 27) this.$emit('close')
-    })
+    document.body.addEventListener("keydown", (e) => {
+      if (e.keyCode === 27) this.$emit("close");
+    });
   },
   computed: {},
-  methods: {}
-}
+  methods: {},
+};
 </script>
 
 <style lang="scss" scoped>
@@ -53,10 +53,10 @@ export default {
   top: 0;
   bottom: 0;
   left: 0;
-  transition: opacity .2s ease;
+  transition: opacity 0.2s ease;
   right: 0;
   z-index: 998;
-  background-color: rgba(00, 00, 00, .48);
+  background-color: rgba(00, 00, 00, 0.48);
 }
 
 .modal-content {
@@ -65,7 +65,7 @@ export default {
   padding: 20px 18px;
   background-color: #fff;
   border: 1px solid #dcdfe6;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   border-radius: 8px;
   z-index: 999;
   overflow: hidden;
