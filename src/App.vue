@@ -4,7 +4,9 @@
     <div class="wrapper-content">
       <section>
         <div class="container">
-          <Modal title="first modal"></Modal>
+          <button class="btn btnPrimary" @click="modalFirst = !modalFirst ">Show first modal</button>
+          <!-- first modal  -->
+          <Modal title="first modal" v-if="modalFirst"></Modal>
         </div>
       </section>
     </div>
@@ -19,7 +21,7 @@ export default {
   },
   data() {
     return {
-      
+      modalFirst: false
     }
   }
 }
