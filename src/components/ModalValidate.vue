@@ -1,7 +1,7 @@
 <template>
   <Modal title="modal with form + Validate" @close="$emit('close')">
     <div slot="body">
-      <form @submit.prevent="">
+      <form @submit.prevent="onSubmit">
         <!-- name  -->
         <div class="form-item" :class="{ errorInput: $v.name.$error }">
           <label>Name:</label>
@@ -19,9 +19,7 @@
         <div class="form-item" :class="{ errorInput: $v.email.$error }">
           <label>email:</label>
           <p class="errorText" v-if="!$v.email.required">filed is required</p>
-          <p class="errorText" v-if="!$v.email.email">
-            email is not correct!
-          </p>
+          <p class="errorText" v-if="!$v.email.email">email is not correct!</p>
           <input
             v-model="email"
             @change="$v.email.$touch()"
@@ -57,6 +55,18 @@ export default {
     email: {
       required,
       email,
+    },
+  },
+  methods: {
+    onSubmit() {
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        const user = {
+          name: this.name,
+          email: this.email,
+        };
+        console.log(user);
+      }
     },
   },
 };
