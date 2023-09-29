@@ -16,8 +16,19 @@
           />
         </div>
         <!-- email  -->
-        <label>email</label>
-        <input v-bind="email" />
+        <div class="form-item" :class="{ errorInput: $v.email.$error }">
+          <label>email:</label>
+          <p class="errorText" v-if="!$v.email.required">filed is required</p>
+          <p class="errorText" v-if="!$v.email.email">
+            email is not correct!
+          </p>
+          <input
+            v-model="email"
+            @change="$v.email.$touch()"
+            :class="{ error: $v.email.$error }"
+          />
+        </div>
+        <!-- button  -->
         <button class="btn btnPrimary">submit</button>
       </form>
     </div>
