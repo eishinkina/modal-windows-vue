@@ -59,20 +59,20 @@ export default {
   },
   methods: {
     onSubmit() {
-  this.$v.$touch();
-  if (!this.$v.$invalid) {
-    const user = {
-      name: this.name,
-      email: this.email,
-    };
-    console.log(user);
-   
-    this.name = "";
-    this.email = "";
-    this.$v.$reset()
-  }
-},
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        const user = {
+          name: this.name,
+          email: this.email,
+        };
+        console.log(user);
 
+        this.name = "";
+        this.email = "";
+        this.$v.$reset();
+        this.$emit("close");
+      }
+    },
   },
 };
 </script>
